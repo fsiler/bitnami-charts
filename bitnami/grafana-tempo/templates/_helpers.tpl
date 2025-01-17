@@ -46,10 +46,11 @@ Return the proper Grafana Tempo querier fullname
 {{- end -}}
 
 {{/*
-Return the proper Grafana Tempo query-frontend fullname
+Return the proper Grafana Tempo query-frontend fullname.
+Truncated to 54 characters to allow adding "-headless"
 */}}
 {{- define "grafana-tempo.query-frontend.fullname" -}}
-{{- printf "%s-%s" (include "common.names.fullname" .) "query-frontend" -}}
+{{- trunc 54 (printf "%s-%s" (include "common.names.fullname" .) "query-frontend") -}}
 {{- end -}}
 
 {{/*
